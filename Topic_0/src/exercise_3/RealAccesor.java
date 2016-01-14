@@ -10,9 +10,9 @@ public class RealAccesor implements Accesor{
 	private String portNumber;
 	private String query;
 	
-	public RealAccesor(String q){
+	public RealAccesor(String query){
 		//...
-		this.query = q;
+		this.query = query;
 	}
 	
 	public void getConnection(){

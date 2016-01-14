@@ -11,10 +11,10 @@ public class Demo {
 		DBConnectionBuilder connectionBuilder = new HomeDBConnectionBuilder();
 		DBConnectionDirector connectionDirector = new DBConnectionDirector(connectionBuilder);
 		connectionDirector.constructConnection();
-		DBConnection conn = connectionDirector.getConnection();
+		DBConnection connection = connectionDirector.getConnection();
 	
 		try {
-			DriverManager.getConnection(conn.getUrl(), conn.getUser(), conn.getPass());
+			DriverManager.getConnection(connection.getUrl(), connection.getUser(), connection.getPass());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

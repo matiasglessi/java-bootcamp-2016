@@ -5,8 +5,8 @@ public class ProxyAccesor implements Accesor{
 	private String query;
 	private RealAccesor accesor;
 	
-	public ProxyAccesor(String q){
-		this.query = q;
+	public ProxyAccesor(String query){
+		this.query = query;
 	}
 	
 	public void executeQuery(){

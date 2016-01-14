@@ -2,32 +2,32 @@ package exercise_4;
 
 public class HomeDBConnectionBuilder implements DBConnectionBuilder {
 
-	private DBConnection conn;
+	private DBConnection connection;
 	
 	public HomeDBConnectionBuilder(){
-		conn = new DBConnection();
+		connection = new DBConnection();
 	}
 	
 	@Override
 	public void buildUser() {
-		conn.setUser("family");
+		connection.setUser("family");
 
 	}
 
 	@Override
 	public void buildPass() {
-		conn.setPass("123456");
+		connection.setPass("123456");
 
 	}
 
 	@Override
 	public void buildUrl() {
-		conn.setUrl("");
+		connection.setUrl("");
 	}
 
 	@Override
 	public DBConnection getConnection() {
-		return conn;
+		return connection;
 	}
 
 }
