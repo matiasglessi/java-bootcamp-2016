@@ -1,5 +1,7 @@
 package exercise_4;
 
+import connection.DBConnection;
+
 public class DBConnectionDirector {
 
 	private DBConnectionBuilder connectionBuilder = null;

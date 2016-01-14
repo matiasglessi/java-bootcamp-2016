@@ -1,11 +1,14 @@
 package exercise_4;
 
+import connection.DBConnection;
+import connection.HomeDBConnection;
+
 public class HomeDBConnectionBuilder implements DBConnectionBuilder {
 
 	private DBConnection connection;
 	
 	public HomeDBConnectionBuilder(){
-		connection = new DBConnection();
+		connection = new HomeDBConnection();
 	}
 	
 	@Override
@@ -25,7 +28,6 @@ public class HomeDBConnectionBuilder implements DBConnectionBuilder {
 		connection.setUrl("");
 	}
 
-	@Override
 	public DBConnection getConnection() {
 		return connection;
 	}

@@ -1,23 +1,23 @@
 package exercise_1;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import connection.DBConnection;
+import connection.GenericDBConnection;
 
 
 public class ConnectionSingleton {
 	
-	private String serverName;
-	private String dbms;
-	private String portNumber;
+	private DBConnection connection;
+	
 	
 	public ConnectionSingleton(){
+		this.connection = new GenericDBConnection();
 	}
 
-	public void getConnection(){
-		try {
-			DriverManager.getConnection("jdbc:" + this.dbms + "://" +this.serverName +":" + this.portNumber + "/","user", "pass");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
+	public DBConnection getConnection(){
+		return connection;
 	}
+	
 }	
+
+

@@ -1,25 +1,25 @@
 package exercise_4;
 
 import connection.DBConnection;
-import connection.OfficeDBConnection;
+import connection.GenericDBConnection;
 
-public class OfficeDBConnectionBuilder implements DBConnectionBuilder {
+public class GenericDBConnectionBuilder implements DBConnectionBuilder {
 
 	private DBConnection connection;
 	
-	public OfficeDBConnectionBuilder(){
-		connection = new OfficeDBConnection();
+	public GenericDBConnectionBuilder(){
+		connection = new GenericDBConnection();
 	}
 	
 	@Override
 	public void buildUser() {
-		connection.setUser("soft_dev");
+		connection.setUser("admin");
 
 	}
 
 	@Override
 	public void buildPass() {
-		connection.setPass("654321");
+		connection.setPass("admin");
 
 	}
 
@@ -34,3 +34,4 @@ public class OfficeDBConnectionBuilder implements DBConnectionBuilder {
 	}
 
 }
+

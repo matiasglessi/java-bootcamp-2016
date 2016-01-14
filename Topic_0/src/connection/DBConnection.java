@@ -1,6 +1,6 @@
-package exercise_4;
+package connection;
 
-public class DBConnection {
+public abstract class DBConnection {
 	
 	private String user;
 	private String pass;
@@ -33,4 +33,6 @@ public class DBConnection {
 		this.url = url;
 	}
 	
+	public abstract void connectDB();
+
 }

@@ -1,30 +1,28 @@
 package exercise_3;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import connection.DBConnection;
+import connection.GenericDBConnection;
 
 public class RealAccesor implements Accesor{
 	
-	private String serverName;
-	private String dbms;
-	private String portNumber;
+
 	private String query;
+	private DBConnection dbConnection;
 	
 	public RealAccesor(String query){
-		//...
 		this.query = query;
+		dbConnection = new GenericDBConnection();
+		getConnection();
 	}
 	
 	public void getConnection(){
-		try {
-			DriverManager.getConnection("jdbc:" + this.dbms + "://" +this.serverName +":" + this.portNumber + "/","user", "pass");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		System.out.println("Getting connection.");
+		dbConnection.connectDB();
+	
 	}
 	
 	public void executeQuery(){
-		//...
+		System.out.println("Executing query: " + query);
 	}
 
 
