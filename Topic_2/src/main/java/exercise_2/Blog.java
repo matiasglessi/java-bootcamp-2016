@@ -1,4 +1,4 @@
-package tdd;
+package exercise_2;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package tdd;
+package exercise_2;
 
 public class Entry {
 	
