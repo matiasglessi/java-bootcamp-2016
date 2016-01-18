@@ -17,8 +17,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 		//Exercise 1 - Singleton Pattern
-		ConnectionSingleton connectionSingleton = new ConnectionSingleton();
-		connectionSingleton.getConnection().connectDB();
+		ConnectionSingleton connectionSingleton = ConnectionSingleton.getInstance();
+		connectionSingleton.connectDB();
 		
 		// Exercise 2 - Abstract Factory Pattern
 		AbstractFactory factory = new SpecialConnectionFactory();
