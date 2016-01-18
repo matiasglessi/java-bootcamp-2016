@@ -1,23 +1,18 @@
 package maven;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
 
 
-public class MainTest  extends TestCase {
+public class MainTest{
   
-    public MainTest(String testName)    {
-        super(testName);
+    public MainTest(){
     }
     
-    public void test()
-    {
-        assertTrue(true);
-    }
-    
-   
+    @Test
     public void testAdd1Plus1() 
     {
         int x  = 1 ; int y = 1;
-        assertEquals(2, Main.add(x,y));
+        Assert.assertEquals(2, Main.add(x,y));
     }
 }
