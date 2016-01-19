@@ -2,6 +2,9 @@ package exercise_2;
 
 import org.junit.Assert;
 import org.junit.Test;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 
 
 public class BlogTest {
@@ -23,6 +26,8 @@ public class BlogTest {
 
 	@Test
 	public void whenTheEntriesListHasTenOrMoreEntriesThenReturnLastTenEntries(){
+		//Adding 11 entries.
+		blogTest.addEntry(entryTest);
 		blogTest.addEntry(entryTest);
 		blogTest.addEntry(entryTest);
 		blogTest.addEntry(entryTest);
@@ -34,6 +39,18 @@ public class BlogTest {
 		blogTest.addEntry(entryTest);
 		blogTest.addEntry(entryTest);
 		Assert.assertEquals(10, blogTest.getMostRecentEntries().size());
+	}
+	
+	
+	@Test
+	public void whenAnEntryIsSearchedAndFindedThenReturnEntry(){
+		Blog mockedBlog = mock(Blog.class);
+		Entry entry = new Entry ("Test", "(...) body (...)", "category");
+		when(mockedBlog.getEntry("Test")).thenReturn(entry);
+		mockedBlog.addEntry(entry);
+		Entry findedEntry = mockedBlog.getEntry("Test");
+		Assert.assertNotNull(entry);
+		Assert.assertEquals(findedEntry.getTitle(), entry.getTitle());	
 	}
 	
 	@Test
