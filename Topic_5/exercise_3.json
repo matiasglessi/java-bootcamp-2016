@@ -1,0 +1,3 @@
+//Fetch all courses ordered by name for a given teacher.
+
+db.getCollection("courses").find(eq("teacher_name", "<given-teacher>"));
