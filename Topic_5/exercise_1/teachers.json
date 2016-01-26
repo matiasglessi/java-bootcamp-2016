@@ -1,0 +1,25 @@
+db.createCollection("teachers")
+
+db.teachers.insert( {
+    id: "t1",
+    first_name: "Maria",
+    last_name: "Gonzalez",
+    date_of_birth: ISODate("1967-07-02T00:00:00Z"),
+    courses: [ null ]
+ } )
+
+db.teachers.insert( {
+    id: "t2",
+    first_name: "Albert",
+    last_name: "Eintstein",
+    date_of_birth: ISODate("1946-11-12T00:00:00Z"),
+   	courses: [ "Spring Core" ]
+ } )
+
+db.teachers.insert( {
+    id: "t3",
+    first_name: "Josefina",
+    last_name: "Rodriguez",
+    date_of_birth: ISODate("1971-07-15T00:00:00Z"),
+    courses: [ "TDD" , "MySQL" ]
+ } )

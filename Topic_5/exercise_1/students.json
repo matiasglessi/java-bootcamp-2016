@@ -1,0 +1,23 @@
+db.createCollection("students")
+
+//Example of the insert of one student.
+
+db.students.insert( {
+    user_id: "s1",
+    first_name:	"Nicolas",
+    last_name:	"Gomez",
+    date_of_birth: ISODate("1980-01-16T00:00:00Z"),
+    courses: [
+    		{	
+    		course_id:"c1",
+    		course_name:"TDD",
+    		grade: 8
+    		},
+    		{
+    		course_id: "c2",
+    		course_name: "NoSQL",
+    		grade: 5
+    		}
+    		]
+ } )
+
