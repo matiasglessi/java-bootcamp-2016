@@ -1,0 +1,4 @@
+// Fetch all students whose notes 
+// in a specific course were greater than 4.
+
+db.getCollection("students").find(and(eq("courses.course_name", "<given-course>"), gt("courses.grade", 4)));
