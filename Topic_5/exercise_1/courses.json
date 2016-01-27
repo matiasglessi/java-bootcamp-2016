@@ -1,0 +1,32 @@
+db.createCollection("courses")
+
+db.courses.insert( {
+    id: "c1",
+    course_name: "MySQL",
+    teacher_name: "Rodriguez",
+    hours_by_week: 54,
+    start_date: ISODate("2016-01-05T19:00:00Z"),
+    end_date: ISODate("2016-01-05T23:30:00Z")
+ } )
+
+db.courses.insert( {
+    id: "c2",
+    course_name: "TDD",    
+    teacher_name: "Rodriguez",
+    hours_by_week: 12,
+    start_date: ISODate("2016-01-10T08:30:00Z"),
+    end_date: ISODate("2016-01-10T12:00:00Z")
+ } )
+
+db.courses.insert( {
+    id: "c3",
+    course_name: "Spring Core",
+    teacher_name: "Einstein",
+    hours_by_week: 100,
+    start_date: ISODate("2016-01-19T10:00:00Z"),
+    end_date: ISODate("2016-01-19T14:55:00Z")
+ } )
+
+
+
+

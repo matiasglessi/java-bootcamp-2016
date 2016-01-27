@@ -1,0 +1,202 @@
+db.createCollection("students")
+
+db.students.insert( {
+    first_name:	"Nicolas",
+    last_name:	"Gomez",
+    date_of_birth: ISODate("1980-01-16T00:00:00Z"),
+    courses: [
+    		{	
+    		course_id:"c1",
+    		course_name:"MySQL",
+    		grade: 8
+    		},
+    		{
+    		course_id: "c2",
+    		course_name: "TDD",
+    		grade: 5
+    		}
+    		]
+ } )
+
+db.students.insert( {
+    first_name: "Juan",
+    last_name:  "Perez",
+    date_of_birth: ISODate("2000-06-15T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c1",
+            course_name:"MySQL",
+            grade: 4
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Luis",
+    last_name:  "Fernandez",
+    date_of_birth: ISODate("1990-03-12T00:00:00Z"),
+    courses: [
+            {
+            course_id: "c2",
+            course_name: "TDD",
+            grade: 7
+            },
+            {   
+            course_id:"c3",
+            course_name:"Spring Core",
+            grade: 5
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Pedro",
+    last_name:  "Vaca",
+    date_of_birth: ISODate("1967-05-01T00:00:00Z"),
+    courses: [
+            {
+            course_id: "c2",
+            course_name: "TDD",
+            grade: 4
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Lucia",
+    last_name:  "Gomez",
+    date_of_birth: ISODate("1999-01-09T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c1",
+            course_name:"MySQL",
+            grade: 3
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Carolina",
+    last_name:  "Ramundi",
+    date_of_birth: ISODate("1987-09-09T00:00:00Z"),
+    courses: [
+            {
+            course_id: "c2",
+            course_name: "TDD",
+            grade: 5
+            },
+            {   
+            course_id:"c3",
+            course_name:"Spring Core",
+            grade: 5
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Adolfo",
+    last_name:  "Garre",
+    date_of_birth: ISODate("1990-06-15T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c1",
+            course_name:"MySQL",
+            grade: 5
+            },
+            {
+            course_id: "c2",
+            course_name: "TDD",
+            grade: 10
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Analcleta",
+    last_name:  "Basualdo",
+    date_of_birth: ISODate("1993-06-24T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c3",
+            course_name:"Spring Core",
+            grade: 8
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Roberto",
+    last_name:  "Basualdo",
+    date_of_birth: ISODate("2001-05-11T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c1",
+            course_name:"MySQL",
+            grade: 6
+            },
+            {
+            course_id: "c2",
+            course_name: "TDD",
+            grade: 3
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Juan Carlos",
+    last_name:  "Da Silva",
+    date_of_birth: ISODate("1998-03-04T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c1",
+            course_name:"MySQL",
+            grade: 10
+            },
+            {
+            course_id: "c3",
+            course_name: "Spring Core",
+            grade: 2
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Maximiliano",
+    last_name:  "Nolaco",
+    date_of_birth: ISODate("1984-02-13T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c1",
+            course_name:"MySQL",
+            grade: 10
+            },
+            {
+            course_id: "c2",
+            course_name: "TDD",
+            grade: 9
+            }
+            ]
+ } )
+
+db.students.insert( {
+    first_name: "Emiliano",
+    last_name:  "Almeida",
+    date_of_birth: ISODate("1970-04-22T00:00:00Z"),
+    courses: [
+            {   
+            course_id:"c1",
+            course_name:"MySQL",
+            grade: 3
+            },
+            {
+            course_id: "c2",
+            course_name: "TDD",
+            grade: 9
+            },
+            {
+            course_id: "c3",
+            course_name: "Spring Core",
+            grade: 6
+            }
+            ]
+ } )
