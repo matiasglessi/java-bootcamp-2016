@@ -1,0 +1,837 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Globant's Java Bootcamp Final Proyect: API for a functional shopping cart.",
+        "version": "2.0",
+        "title": "Shopping Cart REST API",
+        "contact": {
+            "name": "Matias Glessi <matiasglessi@gmail.com>"
+        },
+        "license": {
+            "name": "Apache License Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "product-controller",
+            "description": "Products API"
+        },
+        {
+            "name": "user-controller",
+            "description": "Users API"
+        }
+    ],
+    "paths": {
+        "/api/products": {
+            "post": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "Create Product",
+                "description": "Creates a new product.",
+                "operationId": "createProductUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "product",
+                        "description": "product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    },
+                    "201": {
+                        "description": "Success in the product creation.",
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    },
+                    "400": {
+                        "description": "The product could not be created."
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "Update Product",
+                "description": "Updates an existent product.",
+                "operationId": "updateProductUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "product",
+                        "description": "product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the product update.",
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "406": {
+                        "description": "The product could not be updated."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "Delete Product",
+                "description": "Deletes an existent product.",
+                "operationId": "deleteProductUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "product",
+                        "description": "product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the product elimination.",
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "The product could not be deleted."
+                    }
+                }
+            }
+        },
+        "/api/products/findbycategory/{category}": {
+            "get": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "Find Product by category",
+                "description": "Finds a list of products by category.",
+                "operationId": "findByCategoryUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "description": "category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the product search.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Product entity"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "No products were found."
+                    }
+                }
+            }
+        },
+        "/api/products/findbyname/{name}": {
+            "get": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "Find Product by name",
+                "description": "Finds a list of products by name.",
+                "operationId": "findByNameUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the product search.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Product entity"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "No products were found."
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "post": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Create User",
+                "description": "Creates a new user.",
+                "operationId": "createUserUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "user",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "201": {
+                        "description": "Success in the user creation.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "400": {
+                        "description": "The user could not be created."
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Update User",
+                "description": "Updates an existing user.",
+                "operationId": "updateUserUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "user",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the user update.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "406": {
+                        "description": "The user could not be updated."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Delete User",
+                "description": "Deletes an existing user.",
+                "operationId": "deleteUserUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "user",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the user elimination.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "The user could not be deleted."
+                    }
+                }
+            }
+        },
+        "/api/users/addProduct/{quantity}": {
+            "post": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Add Product",
+                "description": "Adds a product to the user's cart.",
+                "operationId": "addProductUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "product",
+                        "description": "product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    },
+                    {
+                        "name": "quantity",
+                        "in": "path",
+                        "description": "quantity",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in adding the product.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "406": {
+                        "description": "No user logged in."
+                    }
+                }
+            }
+        },
+        "/api/users/buyProducts": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Buy Products",
+                "description": "Buys the content of the user's cart.",
+                "operationId": "buyProductsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in buying the cart's products.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "400": {
+                        "description": "No user logged in."
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "406": {
+                        "description": "Insufficient sotck to complete the request."
+                    }
+                }
+            }
+        },
+        "/api/users/deleteProduct": {
+            "delete": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Delete Product",
+                "description": "Deletes an existing product in the user's cart.",
+                "operationId": "deleteProductUsingDELETE_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "product",
+                        "description": "product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "No user logged in.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "201": {
+                        "description": "Success in deleting the product.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/users/login/{username}/{password}": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Login User",
+                "description": "Logs in the user.",
+                "operationId": "loginUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "username",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "path",
+                        "description": "password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the user login.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "400": {
+                        "description": "Could not log in. Another user logged."
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "The user does not exists."
+                    }
+                }
+            }
+        },
+        "/api/users/logout": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Logout User",
+                "description": "Logs out the user.",
+                "operationId": "logoutUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in the user logout.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/users/products": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "getProducts",
+                "operationId": "getProductsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful return list of existents users.",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found any users."
+                    }
+                }
+            }
+        },
+        "/api/users/saveCart": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Save Cart",
+                "description": "Saves the status of the user's cart.",
+                "operationId": "saveCartUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in saving the cart.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "400": {
+                        "description": "No user logged in."
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/users/updateProduct/{quantity}": {
+            "put": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "Update Product",
+                "description": "Updates an existing product in the user's cart.",
+                "operationId": "updateProductUsingPUT_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "product",
+                        "description": "product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Product entity"
+                        }
+                    },
+                    {
+                        "name": "quantity",
+                        "in": "path",
+                        "description": "quantity",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success in updating the product.",
+                        "schema": {
+                            "$ref": "#/definitions/User entity"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "406": {
+                        "description": "No user logged in."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "User entity": {
+            "required": [
+                "first_name",
+                "last_name",
+                "password",
+                "username"
+            ],
+            "properties": {
+                "first_name": {
+                    "type": "string",
+                    "description": "User's first name"
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User's last name"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "User's password"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "User's username"
+                }
+            },
+            "description": "Complete data of an entity User"
+        },
+        "Product entity": {
+            "required": [
+                "category",
+                "id",
+                "name",
+                "price",
+                "stock"
+            ],
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "description": "Product's category"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Product's id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Product's name"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Product's price"
+                },
+                "stock": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Product's stock"
+                }
+            },
+            "description": "Complete data of an entity Product"
+        }
+    }
+}
